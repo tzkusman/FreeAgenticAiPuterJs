@@ -1,0 +1,77 @@
+{
+  "name": "puteragent-studio",
+  "version": "2.5.0",
+  "description": "Autonomous Multi-Model AI Agent & Coding Studio with Local Computer Access powered by Puter.js",
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "electron electron/main.js",
+    "electron": "electron electron/main.js",
+    "web": "python server.py",
+    "dist": "electron-builder --win nsis portable",
+    "dist:nsis": "electron-builder --win nsis",
+    "dist:portable": "electron-builder --win portable",
+    "dist:dir": "electron-builder --dir"
+  },
+  "build": {
+    "appId": "com.puteragent.studio",
+    "productName": "PuterAgent Studio",
+    "copyright": "Copyright © 2026 PuterAgent Studio",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "PuterAgent Studio",
+      "uninstallDisplayName": "PuterAgent Studio"
+    },
+    "files": [
+      "assets/**/*",
+      "css/**/*",
+      "docs/**/*",
+      "electron/**/*",
+      "js/**/*",
+      "index.html",
+      "package.json"
+    ]
+  },
+  "keywords": [
+    "puter",
+    "puterjs",
+    "qwen",
+    "deepseek",
+    "agentic-coding",
+    "ai-agent",
+    "local-computer-access",
+    "desktop-installer"
+  ],
+  "author": "PuterAgent Studio",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^45.2.1",
+    "electron-builder": "^26.18.0"
+  },
+  "dependencies": {
+    "@heyputer/puter.js": "^2.6.5"
+  }
+}
